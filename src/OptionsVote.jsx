@@ -1,12 +1,30 @@
 import React from "react";
+import { useGlobalContext } from "./contex";
+import axios from "axios";
+const OptionsVote = () => {
+  const url = "https://6662028563e6a0189fec6e65.mockapi.io/api/users/";
 
-const OptionsVote = (vote) => {
-  const id = "abra";
+  let { check, Page, setPage, fetchData, isLoading, currentUser } =
+    useGlobalContext();
+
+  const user = currentUser[0];
+  console.log(user);
+  user.vote = 20;
 
   //here we will send votes
-  function vote(e) {
-    const choise = e.target.textContent;
-    //   console.log(id);
+  async function vote(e) {
+    const choice = e.target.textContent;
+
+    try {
+      // Replace 'your-api-endpoint' with the actual endpoint URL
+      const result = await axios.put(url + user.id, {
+        vote: choice,
+      });
+      // Assuming setResponse is a function to manage state in your component
+    } catch (error) {
+      console.error("There was an error updating the user!", error);
+      // Optionally, handle the error in a way that's meaningful for your app
+    }
   }
 
   function shuffle(array) {
@@ -21,13 +39,16 @@ const OptionsVote = (vote) => {
 
   return (
     <>
-      {options.map((item, index) => {
-        return (
-          <div onClick={vote} key={index}>
-            {item}{" "}
-          </div>
-        );
-      })}
+      <div className="voting-options">
+        {options.map((item, index) => {
+          return (
+            <button type="button" className="option" onClick={vote} key={index}>
+              {item}{" "}
+            </button>
+          );
+        })}
+      </div>
+      <div className="buttomImage"></div>
     </>
   );
 };

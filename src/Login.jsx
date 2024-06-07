@@ -22,6 +22,9 @@ const Login = () => {
     } else {
       setCurrentUser(result);
       setPage(1);
+      if (result[0].previllage) {
+        setPage(2);
+      }
     }
 
     // Log the retrieved values
@@ -29,8 +32,9 @@ const Login = () => {
   };
 
   return (
-    <article>
-      <h1>Login</h1>
+    <article className="loginScreen">
+      <div className="corner"></div>
+      <h1 className="animate__heartBeat">Login</h1>
       <form onSubmit={handleSubmit}>
         <input type="text" id="id" name="name" placeholder="name" />
         <input

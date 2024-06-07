@@ -7,11 +7,11 @@ const Voting = (currentUser) => {
   const vote = currentUser.currentUser[0].vote;
 
   return (
-    <header>
+    <div className="voterInterface">
       <h1> welcome user to our votins system</h1>
       <h1>your voting status is:</h1>
       <OptionsVote />
-    </header>
+    </div>
   );
 };
 
