@@ -1,0 +1,9 @@
+h1 {
+  font-size: 300px;
+}
+
+header {
+  position: absolute;
+  top: 0px;
+  text-align: center;
+}
