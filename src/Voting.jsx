@@ -13,7 +13,7 @@ const Voting = (currentUser) => {
 
   return (
     <div className="voterInterface">
-      <h1> welcome user to our votins system</h1>
+      <h1> welcome {name} to our voting system</h1>
       <h1>your voting status is:{message}</h1>
       <OptionsVote />
     </div>

@@ -13,7 +13,6 @@ function App() {
     fetchData();
   }, []);
 
-  // Directly render the Voting component with currentUser passed as a prop
   if (Page === 1) {
     return <Voting currentUser={currentUser} />;
   }
@@ -26,7 +25,6 @@ function App() {
     );
   }
 
-  // Render the Login component if Page is not 1 and isLoading is false
   return isLoading ? (
     <p>Loading...</p>
   ) : (

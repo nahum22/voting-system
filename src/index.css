@@ -31,7 +31,7 @@ body {
 
 h1 {
   font-size: 3.2em;
-  line-height: 1.1;
+  line-height: 0.5;
 }
 
 button {
@@ -67,10 +67,14 @@ button:focus-visible {
 }
 
 tr:nth-child(even) {
-  background-color: #74ffec;
+  background-color: #edc514;
 }
 
 .statistics-header {
+  padding-top: 5vh;
+  color: rgb(63, 62, 86);
+  text-shadow: rgb(242, 237, 237) 1px 0px 10px;
+
   text-align: center;
   margin-left: auto;
   margin-right: auto;
@@ -82,10 +86,11 @@ table {
   font-size: 30px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 4vh;
 }
 
 tr:hover {
-  background-color: purple;
+  background-color: rgb(112, 3, 12);
   color: white;
   font-weight: 700;
 }
@@ -98,4 +103,11 @@ tr:hover {
   width: 40px;
   padding: 30px 20px;
   opacity: 0.2;
+}
+
+h1.animate__heartBeat {
+  color: #06186f;
+  font-size: 70px;
+  letter-spacing: 3px;
+  text-shadow: rgb(53, 241, 210) 2px 2px 10px;
 }

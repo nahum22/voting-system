@@ -10,6 +10,15 @@ export const AppProvider = ({ children }) => {
 
   const [data, setData] = useState([]); // State to hold the fetched data
   const [isLoading, setIsLoading] = useState(true); // State to track loading status
+  const [votingOptions, setVotingOptions] = useState(true); // State to track loading status
+
+  function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
 
   const fetchData = async () => {
     try {
@@ -29,6 +38,8 @@ export const AppProvider = ({ children }) => {
   const [Page, setPage] = useState(0);
 
   const check = (user, data) => {
+    setVotingOptions(shuffle(["dog", "cat", "cow", "lion"]));
+
     const result = data.filter((item) => {
       return item.email === user[1] && item.name === user[0];
     });
@@ -50,6 +61,7 @@ export const AppProvider = ({ children }) => {
         setPage,
         setCurrentUser,
         currentUser,
+        votingOptions
       }}
     >
       {children}

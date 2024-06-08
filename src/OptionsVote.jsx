@@ -15,6 +15,7 @@ const OptionsVote = () => {
     isLoading,
     currentUser,
     setCurrentUser,
+    votingOptions,
   } = useGlobalContext();
   useEffect(() => {
     toast("Notice you have 30 seconds to finish voting", {
@@ -77,7 +78,7 @@ const OptionsVote = () => {
     return array;
   }
 
-  const options = shuffle(["cat", "dog", "lion", "cow"]);
+  const options = votingOptions;
 
   return (
     <>
