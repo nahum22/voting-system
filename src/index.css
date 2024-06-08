@@ -89,3 +89,13 @@ tr:hover {
   color: white;
   font-weight: 700;
 }
+
+.toast-message {
+  background: darkblue;
+  background-color: transparent;
+  color: #fff;
+  font-size: 20px;
+  width: 40px;
+  padding: 30px 20px;
+  opacity: 0.2;
+}
