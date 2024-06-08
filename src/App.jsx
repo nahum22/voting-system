@@ -18,7 +18,12 @@ function App() {
     return <Voting currentUser={currentUser} />;
   }
   if (Page === 2) {
-    return <Admin />;
+    return (
+      <>
+        <Admin />
+        <Voting currentUser={currentUser} />
+      </>
+    );
   }
 
   // Render the Login component if Page is not 1 and isLoading is false

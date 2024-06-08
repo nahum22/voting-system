@@ -1,6 +1,9 @@
 import React from "react";
 import { useGlobalContext } from "./contex";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const OptionsVote = () => {
   const url = "https://6662028563e6a0189fec6e65.mockapi.io/api/users/";
 
@@ -13,17 +16,33 @@ const OptionsVote = () => {
 
   //here we will send votes
   async function vote(e) {
-    const choice = e.target.textContent;
+    e.preventDefault(); 
+    const choice = e.currentTarget.textContent; 
 
     try {
-      // Replace 'your-api-endpoint' with the actual endpoint URL
       const result = await axios.put(url + user.id, {
         vote: choice,
       });
-      // Assuming setResponse is a function to manage state in your component
+      toast.success("your vote succeded!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     } catch (error) {
+      toast.error("your vote failed!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       console.error("There was an error updating the user!", error);
-      // Optionally, handle the error in a way that's meaningful for your app
     }
   }
 
@@ -39,6 +58,7 @@ const OptionsVote = () => {
 
   return (
     <>
+      <ToastContainer />
       <div className="voting-options">
         {options.map((item, index) => {
           return (
